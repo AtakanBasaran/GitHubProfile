@@ -15,19 +15,24 @@ class FollowerListVC: UIViewController {
     
     var username: String!
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var page = 1
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>! //we force unwrap since we configure in viewDidLoad
     var hasMoreFollowers = true
+    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewController()
+        configureSearchController()
         configureCollectionView()
         getFollowers(username: username, page: page)
         configureDataSource()
+    
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +63,6 @@ class FollowerListVC: UIViewController {
                 
                 self.followers.append(contentsOf: followers)
                 
-                
                 if self.followers.isEmpty { //isEmpty is more efficient than .count = 0. We check after appending since followers that comes from can be 0 after last request but we need to look at the total followers after network call
                     let message = "This user doesn't have any followers. Go follow them 😀"
                     
@@ -68,7 +72,7 @@ class FollowerListVC: UIViewController {
                     }
                 }
                 
-                self.updateData()
+                self.updateData(on: self.followers)
                 
                 
             case .failure(let error):
@@ -77,6 +81,18 @@ class FollowerListVC: UIViewController {
         }
     }
     
+    //MARK: - Search Controller
+    
+    func configureSearchController() {
+        
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a username"
+        searchController.obscuresBackgroundDuringPresentation = false //It removes black color effect when we type something
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
     
 }
 
@@ -107,7 +123,7 @@ extension FollowerListVC {
         })
     }
     
-    func updateData() { // we used NSDiffableDataSourceSnapshot for search functionality among followers, if not, we could use DataSource protocol for collection view
+    func updateData(on followers: [Follower]) { // we used NSDiffableDataSourceSnapshot for search functionality among followers, if not, we could use DataSource protocol for collection view
         
         var snapShot = NSDiffableDataSourceSnapshot<Section, Follower>() //for UI updates after getting fetched data
         snapShot.appendSections([.main])
@@ -140,6 +156,43 @@ extension FollowerListVC: UICollectionViewDelegate {
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
+        
+        let destVC = UserInfoVC()
+        destVC.userName = follower.login
+        
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
+        
+    }
+    
+}
+
+
+extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            isSearching = false
+            return
+        }
+        
+        isSearching = true
+        filteredFollowers = followers.filter {$0.login.lowercased().contains(filter.lowercased())}
+        updateData(on: filteredFollowers)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        updateData(on: self.followers)
+    }
+    
+    
+
 }
 
 
