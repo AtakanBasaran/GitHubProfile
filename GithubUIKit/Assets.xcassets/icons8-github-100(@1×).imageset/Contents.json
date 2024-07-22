@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-github-50(@1×).png",
+      "filename" : "icons8-github-100(@1×).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-github-100(@2×).png",
+      "filename" : "icons8-github-200(@2×).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-github-150(@3×).png",
+      "filename" : "icons8-github-300(@3×).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
