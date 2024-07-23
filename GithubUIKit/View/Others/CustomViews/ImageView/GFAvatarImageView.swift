@@ -53,7 +53,7 @@ class GFAvatarImageView: UIImageView {
             
             guard let image = UIImage(data: data) else { return }
             
-             cache.setObject(image, forKey: cacheKey) //we save our image to cache
+            cache.setObject(image, forKey: cacheKey) //we save our image to cache
          
             DispatchQueue.main.async {
                 self.image = image //since we using self in the dispatch main thread, we need to use weak self in network call to prevent memory leaks and strong references

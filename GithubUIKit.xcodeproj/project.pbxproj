@@ -14,6 +14,8 @@
 		BB6FD50A2C471B270072A7B1 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6FD5092C471B270072A7B1 /* GFAvatarImageView.swift */; };
 		BBB81D432C4C50C30031DC80 /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */; };
 		BBB81D4A2C4EDC940031DC80 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */; };
+		BBB81D4D2C4F02140031DC80 /* CFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */; };
+		BBB81D4F2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */; };
 		BBE896242C480A1300CBD019 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE896232C480A1300CBD019 /* UIHelper.swift */; };
 		BBF098A32C405A440031957C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF098A22C405A440031957C /* AppDelegate.swift */; };
 		BBF098A52C405A440031957C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF098A42C405A440031957C /* SceneDelegate.swift */; };
@@ -37,7 +39,9 @@
 		BB6FD5062C471A7C0072A7B1 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		BB6FD5092C471B270072A7B1 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
 		BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
-		BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoVC.swift; sourceTree = "<group>"; };
+		BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoVC.swift; path = UserInfoView/UserInfoVC.swift; sourceTree = "<group>"; };
+		BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CFUserInfoHeaderVC.swift; path = ../../UserInfoView/CFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		BBE896232C480A1300CBD019 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		BBF0989F2C405A440031957C /* GithubUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF098A22C405A440031957C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,8 +94,8 @@
 			children = (
 				BBF098B62C4063420031957C /* SearchVC.swift */,
 				BBF343002C42BCDB00AF9C83 /* FollowerListVC.swift */,
-				BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */,
 				BBF098B82C4063F10031957C /* FavoritesVC.swift */,
+				BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */,
 				BB4424802C428AC70078CC0E /* Others */,
 			);
 			path = View;
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				BBF343022C43FEC500AF9C83 /* GFTitleLabel.swift */,
+				BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */,
 				BBF343042C44075100AF9C83 /* GFBodyLabel.swift */,
 			);
 			path = Labels;
@@ -190,6 +195,7 @@
 		BBF343082C4408F100AF9C83 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */,
 				BBF343062C4408E800AF9C83 /* GFAlertVC.swift */,
 				BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */,
 				BBB81D482C4EDBFE0031DC80 /* ImageView */,
@@ -285,8 +291,10 @@
 				BBF098BB2C40863A0031957C /* GFButton.swift in Sources */,
 				BBF3430B2C44195D00AF9C83 /* UIViewController+Ext.swift in Sources */,
 				BBF098B72C4063420031957C /* SearchVC.swift in Sources */,
+				BBB81D4F2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift in Sources */,
 				BBB81D432C4C50C30031DC80 /* GFEmptyView.swift in Sources */,
 				BBF343072C4408E800AF9C83 /* GFAlertVC.swift in Sources */,
+				BBB81D4D2C4F02140031DC80 /* CFUserInfoHeaderVC.swift in Sources */,
 				BBF343052C44075100AF9C83 /* GFBodyLabel.swift in Sources */,
 				BB6FD4FD2C457A2D0072A7B1 /* Follower.swift in Sources */,
 				BBF343032C43FEC500AF9C83 /* GFTitleLabel.swift in Sources */,
