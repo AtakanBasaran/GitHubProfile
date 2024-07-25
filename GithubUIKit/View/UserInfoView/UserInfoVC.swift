@@ -9,17 +9,23 @@ import UIKit
 
 class UserInfoVC: UIViewController {
     
-    var userName: String!
-    var user: User? = nil
+    let headerView = UIView()
+    let itemView1 = UIView()
+    let itemView2 = UIView()
+    var itemViews: [UIView] = []
 
+    var userName: String!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        getUsername(username: userName)
-    
+        layoutUI()
+        getUserInfo(username: userName)
+        
     }
     
-    private func configureViewController() {
+    func configureViewController() {
         view.backgroundColor = .systemBackground
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissUserInfoVC))
@@ -31,7 +37,7 @@ class UserInfoVC: UIViewController {
         dismiss(animated: true)
     }
     
-    func getUsername(username: String) {
+    func getUserInfo(username: String) {
         
         showLoadingView()
         
@@ -44,19 +50,59 @@ class UserInfoVC: UIViewController {
             switch result {
                 
             case .success(let user):
-                self.user = user
-                print(user)
+                
+                DispatchQueue.main.async {
+                    self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+                }
                 
             case .failure(let error):
-                self.presentGFAlertOnMainThread(title: "Error!", message: error.rawValue, buttonTitle: "OK")
+                presentGFAlertOnMainThread(title: "Error!", message: error.rawValue, buttonTitle: "OK")
             }
         }
         
+    }
+    
+    func layoutUI() {
         
+        itemViews = [headerView, itemView1, itemView2]
+        
+        let padding: CGFloat = 20
+        let itemHeight: CGFloat = 140
+        
+        for itemView in itemViews {
+            view.addSubview(itemView)
+            itemView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                itemView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+                itemView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding)
+            ])
+        }
+        
+   
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 180),
+            
+            itemView1.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
+            itemView1.heightAnchor.constraint(equalToConstant: itemHeight),
+            
+            itemView2.topAnchor.constraint(equalTo: itemView1.bottomAnchor, constant: padding),
+            itemView2.heightAnchor.constraint(equalToConstant: itemHeight)
+            
+        ])
+        
+    }
+    
+    func add(childVC: UIViewController, to containerView: UIView) {
+        addChild(childVC)
+        containerView.addSubview(childVC.view) //we add childVC view to container view we created, header view
+        childVC.view.frame = containerView.bounds
+        childVC.didMove(toParent: self) //we use UserInfoHeaderVC as our child VC for UserInfoVC
     }
     
     
     
-
-
+    
+    
 }

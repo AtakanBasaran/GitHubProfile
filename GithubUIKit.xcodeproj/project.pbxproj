@@ -16,6 +16,8 @@
 		BBB81D4A2C4EDC940031DC80 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */; };
 		BBB81D4D2C4F02140031DC80 /* CFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */; };
 		BBB81D4F2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */; };
+		BBB81D532C4FC9B60031DC80 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D522C4FC9B60031DC80 /* Constants.swift */; };
+		BBB81D552C51569E0031DC80 /* GFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */; };
 		BBE896242C480A1300CBD019 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE896232C480A1300CBD019 /* UIHelper.swift */; };
 		BBF098A32C405A440031957C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF098A22C405A440031957C /* AppDelegate.swift */; };
 		BBF098A52C405A440031957C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF098A42C405A440031957C /* SceneDelegate.swift */; };
@@ -42,6 +44,8 @@
 		BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoVC.swift; path = UserInfoView/UserInfoVC.swift; sourceTree = "<group>"; };
 		BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CFUserInfoHeaderVC.swift; path = ../../UserInfoView/CFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		BBB81D522C4FC9B60031DC80 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
 		BBE896232C480A1300CBD019 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		BBF0989F2C405A440031957C /* GithubUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF098A22C405A440031957C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +98,8 @@
 			children = (
 				BBF098B62C4063420031957C /* SearchVC.swift */,
 				BBF343002C42BCDB00AF9C83 /* FollowerListVC.swift */,
-				BBF098B82C4063F10031957C /* FavoritesVC.swift */,
 				BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */,
+				BBF098B82C4063F10031957C /* FavoritesVC.swift */,
 				BB4424802C428AC70078CC0E /* Others */,
 			);
 			path = View;
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BBE896232C480A1300CBD019 /* UIHelper.swift */,
+				BBB81D522C4FC9B60031DC80 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */,
+				BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */,
 				BBF343062C4408E800AF9C83 /* GFAlertVC.swift */,
 				BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */,
 				BBB81D482C4EDBFE0031DC80 /* ImageView */,
@@ -285,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6FD4FF2C457AD80072A7B1 /* User.swift in Sources */,
+				BBB81D532C4FC9B60031DC80 /* Constants.swift in Sources */,
+				BBB81D552C51569E0031DC80 /* GFItemInfoView.swift in Sources */,
 				BBF098BE2C40897B0031957C /* GFTextField.swift in Sources */,
 				BB6FD5072C471A7C0072A7B1 /* FollowerCell.swift in Sources */,
 				BBF098B92C4063F10031957C /* FavoritesVC.swift in Sources */,
