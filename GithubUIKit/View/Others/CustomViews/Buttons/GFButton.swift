@@ -32,4 +32,11 @@ class GFButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func set(backgroundColor: UIColor, title: String) { //we created this alongside with initializer to configure our button when we initialize without custom one
+        self.backgroundColor = backgroundColor
+        setTitle(title, for: .normal)
+    }
+    
+    
+    
 }

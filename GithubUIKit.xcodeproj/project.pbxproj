@@ -12,6 +12,9 @@
 		BB6FD5042C4594740072A7B1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6FD5032C4594740072A7B1 /* NetworkManager.swift */; };
 		BB6FD5072C471A7C0072A7B1 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6FD5062C471A7C0072A7B1 /* FollowerCell.swift */; };
 		BB6FD50A2C471B270072A7B1 /* GFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6FD5092C471B270072A7B1 /* GFAvatarImageView.swift */; };
+		BB9FFC672C52799700261FD0 /* GFItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9FFC662C52799700261FD0 /* GFItemInfoVC.swift */; };
+		BB9FFC692C5281D900261FD0 /* GFRepoItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9FFC682C5281D900261FD0 /* GFRepoItemVC.swift */; };
+		BB9FFC6B2C528CE700261FD0 /* GFFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9FFC6A2C528CE700261FD0 /* GFFollowerItemVC.swift */; };
 		BBB81D432C4C50C30031DC80 /* GFEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */; };
 		BBB81D4A2C4EDC940031DC80 /* UserInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */; };
 		BBB81D4D2C4F02140031DC80 /* CFUserInfoHeaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */; };
@@ -40,9 +43,12 @@
 		BB6FD5032C4594740072A7B1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BB6FD5062C471A7C0072A7B1 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
 		BB6FD5092C471B270072A7B1 /* GFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAvatarImageView.swift; sourceTree = "<group>"; };
+		BB9FFC662C52799700261FD0 /* GFItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoVC.swift; sourceTree = "<group>"; };
+		BB9FFC682C5281D900261FD0 /* GFRepoItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFRepoItemVC.swift; sourceTree = "<group>"; };
+		BB9FFC6A2C528CE700261FD0 /* GFFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemVC.swift; sourceTree = "<group>"; };
 		BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyView.swift; sourceTree = "<group>"; };
 		BBB81D492C4EDC940031DC80 /* UserInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserInfoVC.swift; path = UserInfoView/UserInfoVC.swift; sourceTree = "<group>"; };
-		BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CFUserInfoHeaderVC.swift; path = ../../UserInfoView/CFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
+		BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFUserInfoHeaderVC.swift; sourceTree = "<group>"; };
 		BBB81D4E2C4F027F0031DC80 /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		BBB81D522C4FC9B60031DC80 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFItemInfoView.swift; sourceTree = "<group>"; };
@@ -120,6 +126,27 @@
 				BB6FD5032C4594740072A7B1 /* NetworkManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		BB9FFC642C52793100261FD0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */,
+				BB9FFC662C52799700261FD0 /* GFItemInfoVC.swift */,
+				BBF343062C4408E800AF9C83 /* GFAlertVC.swift */,
+				BB9FFC682C5281D900261FD0 /* GFRepoItemVC.swift */,
+				BB9FFC6A2C528CE700261FD0 /* GFFollowerItemVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BB9FFC652C52794B00261FD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */,
+				BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		BBB81D452C4EDBD90031DC80 /* Buttons */ = {
@@ -200,10 +227,8 @@
 		BBF343082C4408F100AF9C83 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				BBB81D4C2C4F02140031DC80 /* CFUserInfoHeaderVC.swift */,
-				BBB81D542C51569E0031DC80 /* GFItemInfoView.swift */,
-				BBF343062C4408E800AF9C83 /* GFAlertVC.swift */,
-				BBB81D422C4C50C30031DC80 /* GFEmptyView.swift */,
+				BB9FFC652C52794B00261FD0 /* Views */,
+				BB9FFC642C52793100261FD0 /* ViewControllers */,
 				BBB81D482C4EDBFE0031DC80 /* ImageView */,
 				BBB81D472C4EDBE90031DC80 /* TextField */,
 				BBB81D462C4EDBE10031DC80 /* Labels */,
@@ -290,12 +315,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9FFC6B2C528CE700261FD0 /* GFFollowerItemVC.swift in Sources */,
 				BB6FD4FF2C457AD80072A7B1 /* User.swift in Sources */,
 				BBB81D532C4FC9B60031DC80 /* Constants.swift in Sources */,
 				BBB81D552C51569E0031DC80 /* GFItemInfoView.swift in Sources */,
 				BBF098BE2C40897B0031957C /* GFTextField.swift in Sources */,
 				BB6FD5072C471A7C0072A7B1 /* FollowerCell.swift in Sources */,
 				BBF098B92C4063F10031957C /* FavoritesVC.swift in Sources */,
+				BB9FFC672C52799700261FD0 /* GFItemInfoVC.swift in Sources */,
+				BB9FFC692C5281D900261FD0 /* GFRepoItemVC.swift in Sources */,
 				BBF098BB2C40863A0031957C /* GFButton.swift in Sources */,
 				BBF3430B2C44195D00AF9C83 /* UIViewController+Ext.swift in Sources */,
 				BBF098B72C4063420031957C /* SearchVC.swift in Sources */,
