@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListVCDelegate {
+    func didTapGetFollowers(for user: User)
+}
+
 class FollowerListVC: UIViewController {
     
     enum Section { //Enums Hashable by default
@@ -23,6 +27,9 @@ class FollowerListVC: UIViewController {
     var hasMoreFollowers = true
     var isSearching = false
     
+    let destVC = UserInfoVC()
+    var navController: UINavigationController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,8 +38,7 @@ class FollowerListVC: UIViewController {
         configureCollectionView()
         getFollowers(username: username, page: page)
         configureDataSource()
-    
-        
+        destVC.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +49,18 @@ class FollowerListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let profileButton = UIBarButtonItem(title: "", image: UIImage(systemName: "person"), target: self, action: #selector(getOwnProfile))
+        navigationItem.rightBarButtonItem = profileButton
+        
+        navController = UINavigationController(rootViewController: destVC)
+    }
+    
+    @objc func getOwnProfile() {
+        
+        destVC.userName = username
+        
+        present(navController, animated: true)
     }
     
     func getFollowers(username: String, page: Int) {
@@ -159,11 +177,8 @@ extension FollowerListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let follower = isSearching ? filteredFollowers[indexPath.item] : followers[indexPath.item]
-        
-        let destVC = UserInfoVC()
         destVC.userName = follower.login
         
-        let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
         
     }
@@ -193,6 +208,18 @@ extension FollowerListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     
 
+}
+
+extension FollowerListVC: FollowerListVCDelegate {
+    
+    func didTapGetFollowers(for user: User) {
+        page = 1
+        username = user.login
+        title = username
+        followers.removeAll()
+        getFollowers(username: username, page: page)
+    }
+    
 }
 
 

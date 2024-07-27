@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView! //it is a global variable but has a protection fileprivate because we want to use in this file, UIViewController extension but we cannot create variables inside of extensions. If we write private instead of fileprivate, we could not use this variable inside of UIViewController extension. We use ! since we initialize
 
@@ -61,6 +62,12 @@ extension UIViewController {
         let emptyStateView = GFEmptyView(message: message)
         emptyStateView.frame = view.bounds
         view.addSubview(emptyStateView)
+    }
+    
+    func presentSafariVC(with url: URL) {
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
     }
     
 }
