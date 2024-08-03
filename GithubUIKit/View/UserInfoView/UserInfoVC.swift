@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol UserInfoVCDelegate {
+protocol UserInfoVCDelegate: AnyObject {
     func didTapGitHubProfile(for user: User)
     func didTapGetFollowers(for user: User)
 }
@@ -22,7 +22,7 @@ class UserInfoVC: UIViewController {
     var itemViews: [UIView] = []
 
     var userName: String!
-    var delegate: FollowerListVCDelegate!
+    weak var delegate: FollowerListVCDelegate!
     
     
     override func viewDidLoad() {
@@ -148,7 +148,13 @@ extension UserInfoVC: UserInfoVCDelegate {
     }
     
     func didTapGetFollowers(for user: User) {
-        delegate.didTapGetFollowers(for: user)
+        
+        guard user.followers != 0 else {
+            presentGFAlertOnMainThread(title: "No followers", message: "This user has no followers.", buttonTitle: "Ok")
+            return
+        }
+        
+        delegate.didRequestFollowers(for: user)
         dismissUserInfoVC()
     }
  
