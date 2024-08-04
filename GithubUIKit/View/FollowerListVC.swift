@@ -50,7 +50,9 @@ class FollowerListVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let profileButton = UIBarButtonItem(title: "", image: UIImage(systemName: "person"), target: self, action: #selector(getOwnProfile))
-        navigationItem.rightBarButtonItem = profileButton
+        let addFollowerButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addToFavorites))
+        
+        navigationItem.rightBarButtonItems = [addFollowerButton, profileButton]
         
     }
     
@@ -63,6 +65,41 @@ class FollowerListVC: UIViewController {
         let navController = UINavigationController(rootViewController: destVC)
         
         present(navController, animated: true)
+    }
+    
+    @objc func addToFavorites() {
+        
+        showLoadingView()
+        
+        NetworkManager.shared.getUserInfo(for: username) { [weak self] result in
+            
+            guard let self = self else {return}
+            
+            self.dismissLoadingView()
+            
+            switch result {
+                
+            case .success(let user):
+                
+                let favorite = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                
+                PersistenceManager.updateWith(favorite: favorite, actionType: .add) { [weak self] error in
+                    //since we use self, we use weak self to prevent memory leaks
+                    
+                    guard let self = self else {return}
+                    
+                    guard let error = error else {
+                        self.presentGFAlertOnMainThread(title: "Success", message: "You added this user to favorites successfully", buttonTitle: "Ok")
+                        return
+                    }
+                    
+                    self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+                }
+                
+            case .failure(let error):
+                self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue , buttonTitle: "Ok")
+            }
+        }
     }
     
     func getFollowers(username: String, page: Int) {
@@ -225,7 +262,7 @@ extension FollowerListVC: FollowerListVCDelegate {
         title = username
         followers.removeAll()
         filteredFollowers.removeAll()
-        collectionView.setContentOffset(.zero, animated: true) //Scroll to the top
+//        collectionView.setContentOffset(.zero, animated: true) //Scroll to the top
         isSearching = false
         getFollowers(username: username, page: page)
     }
