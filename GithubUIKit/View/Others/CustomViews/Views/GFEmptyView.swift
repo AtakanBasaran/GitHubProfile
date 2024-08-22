@@ -33,7 +33,7 @@ class GFEmptyView: UIView {
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
         
-        imageView.image = UIImage(named: "icons")
+        imageView.image = Images.emptyImage
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         

@@ -8,9 +8,6 @@
 import UIKit
 
 class GFAvatarImageView: UIImageView {
-    
-    let placeHolderImage = UIImage(named: "icons")
-    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,7 +21,7 @@ class GFAvatarImageView: UIImageView {
     private func configure() {
         layer.cornerRadius = 10
         clipsToBounds = true //image is now cannot exceed image view borders
-        image = placeHolderImage
+        image = Images.placeholder
         translatesAutoresizingMaskIntoConstraints = false
     }
     
