@@ -11,7 +11,7 @@ protocol FollowerListVCDelegate: AnyObject {
     func didRequestFollowers(for user: User)
 }
 
-class FollowerListVC: UIViewController {
+class FollowerListVC: GFDataLoadingVC {
     
     enum Section { //Enums Hashable by default
         case main
@@ -26,6 +26,16 @@ class FollowerListVC: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>! //we force unwrap since we configure in viewDidLoad
     var hasMoreFollowers = true
     var isSearching = false
+    
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     
@@ -75,7 +85,7 @@ class FollowerListVC: UIViewController {
             
             guard let self = self else {return}
             
-            self.dismissLoadingView()
+            dismissLoadingView()
             
             switch result {
                 

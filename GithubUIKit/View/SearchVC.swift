@@ -30,6 +30,7 @@ class SearchVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        usernameTextField.text = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -42,7 +43,7 @@ class SearchVC: UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
-    }
+    }  
     
     @objc func pushFollowerListVC() {
         
@@ -53,10 +54,9 @@ class SearchVC: UIViewController {
         
         guard let usernameText = usernameTextField.text else {return} 
         
-        let followerListVC = FollowerListVC()
-        followerListVC.username = usernameText
-        followerListVC.title = usernameText
-          
+        dismissKeyboard()
+        
+        let followerListVC = FollowerListVC(username: usernameText)
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     

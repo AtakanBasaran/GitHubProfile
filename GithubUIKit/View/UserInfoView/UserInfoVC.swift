@@ -82,7 +82,7 @@ class UserInfoVC: UIViewController {
         self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
         self.add(childVC: repoItemVC, to: self.itemView1) //we initialize it by creating an instance of the itemVCs with user from network call and then we make their delegate to equal self to listen any command
         self.add(childVC: followerItemVC, to: self.itemView2)
-        self.dateLabel.text = "GitHub since \(user.createdAt.convertToDisplayFormat())"
+        self.dateLabel.text = "GitHub since \(user.createdAt.convertToMonthYearFormat())"
     }
     
     func layoutUI() {

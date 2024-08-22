@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController {
+class FavoritesVC: GFDataLoadingVC {
     
     let tableView = UITableView()
     var favorites: [Follower] = []
@@ -45,13 +45,13 @@ class FavoritesVC: UIViewController {
     
     private func retrieveFavorites() {
         
-        self.showLoadingView()
+        showLoadingView()
         
         PersistenceManager.retrieveFavorites { [weak self] result in
             
             guard let self = self else {return}
             
-            self.dismissLoadingView()
+            dismissLoadingView()
             
             switch result {
                 
@@ -110,10 +110,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite = favorites[indexPath.row]
         
-        let destVC = FollowerListVC()
-        destVC.username = favorite.login
-        destVC.title = favorite.login
-        
+        let destVC = FollowerListVC(username: favorite.login)
         navigationController?.pushViewController(destVC, animated: true)
     }
     

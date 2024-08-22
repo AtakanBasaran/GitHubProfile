@@ -1,16 +1,13 @@
 //
-//  GFAvatarImageView.swift
+//  GFAlertContainerView.swift
 //  GithubUIKit
 //
-//  Created by Atakan Başaran on 17.07.2024.
+//  Created by Atakan Başaran on 20.08.2024.
 //
 
 import UIKit
 
-class GFAvatarImageView: UIImageView {
-    
-    let placeHolderImage = UIImage(named: "icons")
-    
+class GFAlertContainerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,9 +19,10 @@ class GFAvatarImageView: UIImageView {
     }
     
     private func configure() {
-        layer.cornerRadius = 10
-        clipsToBounds = true //image is now cannot exceed image view borders
-        image = placeHolderImage
+        backgroundColor = .systemBackground
+        layer.cornerRadius = 16
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor //We use cgColor due to layer that it one level down
         translatesAutoresizingMaskIntoConstraints = false
     }
     
