@@ -38,7 +38,6 @@ class FollowerListVC: GFDataLoadingVC {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

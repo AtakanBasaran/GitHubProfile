@@ -11,7 +11,6 @@ class GFDataLoadingVC: UIViewController {
     
     var containerView: UIView!
 
-    
     func showLoadingView() { // we write loading view as UIViewController extension since we will use in multiple views
         
         containerView = UIView(frame: view.bounds) //Fill up the whole screen, we do not need to set constraints
@@ -30,8 +29,8 @@ class GFDataLoadingVC: UIViewController {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
         ])
         
         activityIndicator.startAnimating()

@@ -7,7 +7,8 @@
 
 import UIKit
 
-struct UIHelper {
+//We use enums instead of structs since we can initialize empty UIHelper object but there is no need to do that, so we use enums, with enums we cannot initialize an empty object
+enum UIHelper {
     
     static func createFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         
